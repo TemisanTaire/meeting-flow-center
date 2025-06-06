@@ -1,24 +1,21 @@
-
-import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+// src/firebaseConfig.js
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  // These are placeholder values - users need to replace with their actual Firebase config
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "your-app-id"
+  apiKey: "AIzaSyDBRvJigVXsTPXr5pr76kciJ9Vw3sFC7dg",
+  authDomain: "hackthestack.firebaseapp.com",
+  projectId: "hackthestack",
+  storageBucket: "hackthestack.firebasestorage.app",
+  messagingSenderId: "525894234073",
+  appId: "1:525894234073:web:0fdbeaad6976c28c49f3c8",
+  measurementId: "G-QHBN5T26RK"
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const googleProvider = new GoogleAuthProvider();
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-// Configure Google provider for Google-only login
-googleProvider.setCustomParameters({
-  prompt: 'select_account'
-});
+export { auth, provider };
