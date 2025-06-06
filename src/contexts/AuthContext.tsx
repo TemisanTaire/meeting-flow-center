@@ -9,7 +9,7 @@ import {
   signInWithEmailAndPassword,
   User
 } from 'firebase/auth';
-import { auth } from '../firebaseConfig';
+import { auth } from '../lib/firebase';
 
 interface AuthContextType {
   user: User | null;
